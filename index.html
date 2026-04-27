@@ -355,6 +355,19 @@ body:hover .kbd-hint { opacity: 1; }
   padding: 8px 20px; border-radius: 100px; cursor: pointer; transition: all .2s;
 }
 .restart-btn:hover { background: color-mix(in srgb,var(--slide-accent) 10%,transparent); border-color: var(--slide-accent); }
+
+/* ── MG MARKET FUNNEL ─────────────────────────────────── */
+.mg-funnel { display:flex;flex-direction:column;gap:3px;width:100%;max-width:680px; }
+.mg-step { background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;display:flex;align-items:center;gap:14px;transition:border-color 0.2s; }
+.mg-step.current { border-color:color-mix(in srgb,var(--slide-accent) 50%,transparent);background:color-mix(in srgb,var(--slide-accent) 6%,transparent); }
+.mg-step-val { font-size:clamp(0.95rem,2vw,1.2rem);font-weight:900;color:var(--slide-accent);font-family:'SF Mono','Fira Code',monospace;min-width:80px;text-align:right; }
+.mg-step.current .mg-step-val { color:var(--brand-lime); }
+.mg-step-label { font-size:0.78rem;color:var(--text);flex:1; }
+.mg-step-sub { font-size:0.65rem;color:var(--dim);display:block;margin-top:1px; }
+.mg-arrow { text-align:center;color:var(--dim);font-size:0.72rem;padding:1px 0; }
+.radar-link { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--slide-accent);text-decoration:none;border:1px solid color-mix(in srgb,var(--slide-accent) 35%,transparent);padding:8px 20px;border-radius:100px;background:color-mix(in srgb,var(--slide-accent) 6%,transparent);display:inline-block;transition:all 0.2s; }
+.radar-link:hover { background:color-mix(in srgb,var(--slide-accent) 14%,transparent);border-color:var(--slide-accent); }
+@media(max-width:480px) { .mg-step-sub { display:none; } }
 </style>
 </head>
 <body>
@@ -838,7 +851,54 @@ body:hover .kbd-hint { opacity: 1; }
     </div>
   </div>
 
-  <!-- 15 — SUPORTE ─────────────────────────────────────── -->
+  <!-- 15 — MERCADO MG ───────────────────────────────────── -->
+  <div class="slide" data-accent="#22c55e" data-section="MERCADO">
+    <div class="kicker ai" style="--d:.05s">Funil de Mercado · MG</div>
+    <div class="headline ai" style="--d:.15s">De <span class="accent">3,5 milhões</span> ao cliente ideal.</div>
+
+    <div class="mg-funnel ai" style="--d:.3s">
+      <div class="mg-step">
+        <div class="mg-step-val">3,5M</div>
+        <div class="mg-step-label">Jovens entre 5–17 anos em MG
+          <span class="mg-step-sub">IBGE 2022 — 17% da população estadual</span>
+        </div>
+      </div>
+      <div class="mg-arrow">▼</div>
+      <div class="mg-step">
+        <div class="mg-step-val">1,1M</div>
+        <div class="mg-step-label">Praticam futebol regularmente
+          <span class="mg-step-sub">~31% dos jovens · demanda Copa 2026 +40%</span>
+        </div>
+      </div>
+      <div class="mg-arrow">▼</div>
+      <div class="mg-step">
+        <div class="mg-step-val">150K</div>
+        <div class="mg-step-label">Em escolinhas formais (TAM)
+          <span class="mg-step-sub">Mercado anual estimado: R$ 60,8M</span>
+        </div>
+      </div>
+      <div class="mg-arrow">▼</div>
+      <div class="mg-step">
+        <div class="mg-step-val">12K</div>
+        <div class="mg-step-label">Atletas na rede América MG (SAM)
+          <span class="mg-step-sub">110 unidades · 25 cidades · R$ 5,4M/ano acessível</span>
+        </div>
+      </div>
+      <div class="mg-arrow">▼</div>
+      <div class="mg-step current">
+        <div class="mg-step-val">1–3,6K</div>
+        <div class="mg-step-label">SOM ano 1 — 10 a 30% de penetração
+          <span class="mg-step-sub">R$ 487K–1,4M · ARPU R$ 48/mês</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai" style="--d:.65s;margin-top:14px;">
+      <a class="radar-link" href="assets/mg-opportunity-radar.html" target="_blank" rel="noopener">Ver análise completa de mercado →</a>
+    </div>
+  </div>
+
+  <!-- 16 — SUPORTE ─────────────────────────────────────── -->
   <div class="slide" data-accent="#c9d148" data-section="SUPORTE">
     <div class="kicker ai" style="--d:.05s">Estamos aqui</div>
     <div class="headline ai" style="--d:.15s">Suporte <span class="accent">direto e rápido</span>.</div>
@@ -857,7 +917,7 @@ body:hover .kbd-hint { opacity: 1; }
     </div>
   </div>
 
-  <!-- 16 — FECHAMENTO ──────────────────────────────────── -->
+  <!-- 17 — FECHAMENTO ──────────────────────────────────── -->
   <div class="slide" data-accent="#c9d148" data-section="FECHAMENTO">
     <img class="hero-bg" src="assets/01-hero-stadium.webp" aria-hidden="true" alt="" loading="lazy" style="filter:sepia(0.3) brightness(0.45)">
     <div class="hero-overlay" style="background:linear-gradient(to top,rgba(10,10,15,0.92) 0%,rgba(10,10,15,0.48) 50%,rgba(10,10,15,0.74) 100%)"></div>
@@ -1052,7 +1112,7 @@ function triggerSlideSpecific(idx) {
       set('[data-mg-som-text]', 'R$ ' + somLow + 'K–' + somHigh + 'M');
     });
   }
-  if (idx === 16) {
+  if (idx === 17) {
     const chart = document.querySelector('.trend-chart');
     if (!chart) return;
     chart.classList.remove('animated');
