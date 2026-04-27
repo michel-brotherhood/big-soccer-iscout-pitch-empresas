@@ -187,12 +187,12 @@ body {
 @keyframes arrowPulse { 0%,100%{opacity:1;transform:translateX(0)} 50%{opacity:0.6;transform:translateX(10px)} }
 
 /* ── PHONE MOCKUP ─────────────────────────────────────── */
-.phone-hero { width: clamp(150px,18vw,200px); margin: 4px auto 12px; filter: drop-shadow(0 25px 50px rgba(222,32,76,0.25)); animation: phoneFloat 4s ease-in-out infinite; }
+.phone-hero { width: clamp(150px,18vw,200px); margin: 4px auto 12px; filter: drop-shadow(0 25px 50px rgba(222,32,76,0.25)); animation: phoneFloat 4s ease-in-out 0.9s infinite; }
 .phone-hero svg { width: 100%; height: auto; display: block; }
 @keyframes phoneFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
 /* ── SHIELD ───────────────────────────────────────────── */
-.shield-icon { width: clamp(56px,7vw,84px); margin: 0 auto 14px; filter: drop-shadow(0 0 24px rgba(79,195,247,0.35)); animation: shieldPulse 3s ease-in-out infinite; }
+.shield-icon { width: clamp(56px,7vw,84px); margin: 0 auto 14px; filter: drop-shadow(0 0 24px rgba(79,195,247,0.35)); animation: shieldPulse 3s ease-in-out 0.7s infinite; }
 .shield-icon svg { width: 100%; height: auto; display: block; }
 @keyframes shieldPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
 
@@ -380,13 +380,13 @@ body:hover .kbd-hint { opacity: 1; }
   <!-- 00 — CAPA ─────────────────────────────────────────── -->
   <div class="slide active" data-accent="#de204c" data-section="INÍCIO">
     <img class="hero-bg" src="assets/01-hero-stadium.webp" aria-hidden="true" alt="">
-    <div class="hero-overlay" style="background:linear-gradient(to bottom,rgba(10,10,15,0.62) 0%,rgba(10,10,15,0.42) 40%,rgba(10,10,15,0.85) 100%)"></div>
+    <div class="hero-overlay" style="background:linear-gradient(to bottom,rgba(10,10,15,0.68) 0%,rgba(10,10,15,0.60) 40%,rgba(10,10,15,0.88) 100%)"></div>
     <div class="particles-bg" id="coverParticles"></div>
     <div class="ai" style="--d:0s;text-align:center;margin-bottom:24px;">
       <span class="meta-chip" style="background:rgba(201,209,72,0.12);color:var(--brand-lime);border:1px solid rgba(201,209,72,0.3);">🟢 Formação · Tecnologia · Futuro</span>
     </div>
     <img class="brand-logo-img ai" style="--d:.1s" src="assets/big-soccer-logo.webp" alt="BigSoccer by iSCOUT">
-    <div class="title-subtitle ai" style="--d:.3s;margin-top:24px;">Transformando a formação esportiva em Atibaia</div>
+    <div class="title-subtitle ai" style="--d:.3s;margin-top:24px;color:var(--text);">Transformando a formação esportiva em Atibaia</div>
     <div class="divider ai" style="--d:.5s"></div>
     <div class="meta-row ai" style="--d:.6s">
       <span class="meta-chip badge-dim">Mais de 20 anos de história</span>
@@ -1004,7 +1004,7 @@ function animateNumber(el, target, duration, formatter) {
 }
 
 function formatStat(n) {
-  return n >= 1000 ? (n / 1000).toFixed(1).replace('.', '.') + '' : String(n);
+  return n.toLocaleString('pt-BR');
 }
 
 /* ── SLIDE-SPECIFIC ANIMATIONS ──────────────────────────── */
@@ -1013,7 +1013,7 @@ function triggerSlideSpecific(idx) {
     document.querySelectorAll('.stats-grid [data-count]').forEach(el => {
       const target = parseInt(el.dataset.count);
       el.textContent = '0';
-      setTimeout(() => animateNumber(el, target, 1200, target >= 1000 ? formatStat : null), 450);
+      setTimeout(() => animateNumber(el, target, 1200, formatStat), 450);
     });
   }
   if (idx === 12) {
