@@ -804,33 +804,37 @@ body:hover .kbd-hint { opacity: 1; }
   <div class="slide" data-accent="#22c55e" data-section="OPORTUNIDADE">
     <div class="kicker ai" style="--d:.05s">Mercado em Expansão</div>
     <div class="headline ai" style="--d:.15s">Minas Gerais: <span class="accent">Oportunidade Estratégica</span>.</div>
-    <div class="subline ai" style="--d:.25s">Um mercado de 20.5M de habitantes com 150K+ jovens em formação esportiva formal. Parceria com América MG (110+ unidades, 12K atletas) abre porta para expansão massiva.</div>
+    <div class="subline ai" style="--d:.22s">20.5M habitantes · 150K+ atletas em escolinhas formais · América MG como canal de entrada (110+ unidades, 25 cidades confirmadas).</div>
 
-    <div class="stats-grid ai" style="--d:.35s">
+    <div class="stats-grid ai" style="--d:.32s">
       <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num">150K</span><span class="stat-plus">+</span></div>
+        <div class="stat-num-wrap"><span data-mg-athletes>150K</span><span class="stat-plus">+</span></div>
         <div class="stat-label">Atletas em Escolinhas Formais</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num">1.2M</span><span class="stat-plus">+</span></div>
+        <div class="stat-num-wrap"><span data-mg-families>300K</span><span class="stat-plus">+</span></div>
         <div class="stat-label">Pais/Famílias Alcançáveis</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num-wrap"><span class="stat-num">R$ 61M</span></div>
+        <div class="stat-num-wrap"><span data-mg-tam>R$ 61M</span></div>
         <div class="stat-label">TAM Anual Potencial</div>
       </div>
     </div>
 
-    <div class="card glow ai" style="--d:.5s;text-align:center;padding:20px 28px;margin-top:16px;max-width:700px;">
-      <div style="font-size:0.88rem;color:var(--bright);line-height:1.8;">
-        <strong style="color:var(--brand-lime)">TAM:</strong> R$ 61M/ano (150K atletas) &nbsp;|&nbsp;
-        <strong style="color:var(--brand-lime)">SAM:</strong> R$ 5.4M/ano (América MG) &nbsp;|&nbsp;
-        <strong style="color:var(--brand-lime)">SOM Y1:</strong> R$ 486K–1.4M (10–30% penetração)
+    <div class="card glow ai" style="--d:.46s;text-align:center;padding:16px 24px;margin-top:12px;max-width:700px;">
+      <div style="font-size:0.82rem;color:var(--bright);line-height:1.9;">
+        <strong style="color:var(--brand-lime)">TAM:</strong> <span data-mg-tam-text>R$ 60.8M/ano · 150K atletas</span> &nbsp;|&nbsp;
+        <strong style="color:var(--brand-lime)">SAM:</strong> <span data-mg-sam-text>R$ 5.4M/ano · rede América</span> &nbsp;|&nbsp;
+        <strong style="color:var(--brand-lime)">SOM Y1:</strong> <span data-mg-som-text>R$ 487K–1.4M</span>
+      </div>
+      <div style="font-size:0.72rem;color:var(--dim);margin-top:6px;line-height:1.6;">
+        📱 4.8M impressões orgânicas · só América &nbsp;·&nbsp; CPM estimado <strong style="color:var(--slide-accent)">~R$0,07</strong> <span style="opacity:.6">vs R$15–30 no digital pago</span>
       </div>
     </div>
 
-    <div class="ai" style="--d:.65s;margin-top:18px;">
-      <span class="badge badge-accent">📍 25+ cidades confirmadas · 400+ empresas com fit ESG</span>
+    <div class="ai" style="--d:.62s;margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+      <span class="badge badge-accent">⚽ Copa 2026: +40% demanda por escolinhas</span>
+      <span class="badge badge-dim">📍 25 cidades · 400 empresas &gt;R$60M · 55 com fit ESG</span>
     </div>
   </div>
 
@@ -1007,6 +1011,17 @@ function formatStat(n) {
   return n.toLocaleString('pt-BR');
 }
 
+/* ── MG OPPORTUNITY DATA ────────────────────────────────── */
+let mgData = null;
+async function loadMGData() {
+  if (mgData) return mgData;
+  try {
+    const r = await fetch('assets/mg-opportunity.json');
+    if (r.ok) mgData = await r.json();
+  } catch(e) { /* file:// or network error — static fallbacks remain */ }
+  return mgData;
+}
+
 /* ── SLIDE-SPECIFIC ANIMATIONS ──────────────────────────── */
 function triggerSlideSpecific(idx) {
   if (idx === 8) {
@@ -1022,6 +1037,20 @@ function triggerSlideSpecific(idx) {
       scoreEl.textContent = '0';
       setTimeout(() => animateNumber(scoreEl, 87, 1100, null), 600);
     }
+  }
+  if (idx === 14) {
+    loadMGData().then(d => {
+      if (!d) return;
+      const set = (sel, txt) => { const el = document.querySelector(sel); if (el) el.textContent = txt; };
+      set('[data-mg-athletes]', (d.market.in_formal_escolinhas / 1000).toFixed(0) + 'K');
+      set('[data-mg-families]', (d.social_reach.total_mg_parents / 1000).toFixed(0) + 'K');
+      set('[data-mg-tam]', 'R$ ' + Math.round(d.tam_sam_som.tam.annual_brl / 1000000) + 'M');
+      set('[data-mg-tam-text]', 'R$ ' + (d.tam_sam_som.tam.annual_brl / 1000000).toFixed(1) + 'M/ano · ' + (d.tam_sam_som.tam.athletes / 1000).toFixed(0) + 'K atletas');
+      set('[data-mg-sam-text]', 'R$ ' + (d.tam_sam_som.sam.annual_brl / 1000000).toFixed(1) + 'M/ano · rede América');
+      const somLow = Math.round(d.tam_sam_som.som.annual_brl_range[0] / 1000);
+      const somHigh = (d.tam_sam_som.som.annual_brl_range[1] / 1000000).toFixed(1);
+      set('[data-mg-som-text]', 'R$ ' + somLow + 'K–' + somHigh + 'M');
+    });
   }
   if (idx === 16) {
     const chart = document.querySelector('.trend-chart');

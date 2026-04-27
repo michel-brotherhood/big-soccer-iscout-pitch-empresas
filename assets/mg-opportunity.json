@@ -1,0 +1,348 @@
+{
+  "_schema": "iscout-mg-opportunity/v1",
+  "_generated": "2026-03-13T00:20Z",
+  "_audited": "2026-03-12T21:35Z",
+  "_radar": "mg-opportunity-radar.html",
+  "_notes": "Standalone MG market data for programmatic ingestion. Confidence levels: verified (official/primary source), estimated (derived/secondary), assumption (model parameter).",
+
+  "market": {
+    "state": "MG",
+    "state_name": "Minas Gerais",
+    "population": 20539989,
+    "population_source": "IBGE Censo 2022",
+    "population_confidence": "verified",
+    "municipalities": 853,
+    "municipalities_confidence": "verified",
+    "pib_state_brl": 972000000000,
+    "pib_source": "IBGE Contas Regionais 2023",
+    "pib_confidence": "verified",
+    "youth_5_17": 3500000,
+    "youth_5_17_note": "17.4% of pop (DataReportal 2025: 5-12=10.6%, 13-17=6.8%) applied to MG pop",
+    "youth_5_17_confidence": "estimated",
+    "play_football": 1100000,
+    "play_football_note": "31% of 5-17 (Scielo 2020: 58.1% sport × 53.1% football)",
+    "play_football_confidence": "estimated",
+    "in_formal_escolinhas": 150000,
+    "in_formal_escolinhas_note": "Bottom-up: branded networks ~23K + independents ~30-87K. BH alone has 75+ escolinhas (Scielo academic study). Cross-check: 3-5% of 3.5M youth = 105-175K. Rounded to 150K.",
+    "in_formal_escolinhas_confidence": "estimated",
+    "in_formal_escolinhas_risk": "MEDIUM — no census, but multiple cross-checks converge"
+  },
+
+  "partner": {
+    "id": "america",
+    "name": "América MG",
+    "total_escolinhas": 110,
+    "total_escolinhas_note": "110+ cited in multiple press sources (Itatiaia, O Tempo). No official public census.",
+    "total_escolinhas_confidence": "verified",
+    "total_athletes": 12000,
+    "total_athletes_source": "americafc.com.br/escolas + press",
+    "total_athletes_confidence": "verified",
+    "avg_per_unit": 109,
+    "cities_confirmed": 25,
+    "cities_confirmed_list": [
+      "BH — Pampulha/Jardim Atlântico",
+      "BH — Morro das Pedras (Oeste)",
+      "BH — Ipiranga",
+      "BH — Serrano",
+      "Contagem",
+      "Santa Luzia",
+      "Caeté",
+      "Ribeirão das Neves",
+      "Lagoa Santa",
+      "Igarapé",
+      "Nova Lima",
+      "Ipatinga",
+      "Juatuba",
+      "Curvelo",
+      "Barbacena",
+      "Ouro Preto / Cachoeira do Campo",
+      "Mariana",
+      "Patrocínio",
+      "Pará de Minas",
+      "São Gonçalo do Rio Abaixo",
+      "Caranaíba",
+      "Conceição da Barra de Minas",
+      "Chapada do Norte",
+      "Urucuia",
+      "João Monlevade"
+    ],
+    "cities_note": "~85 additional units not listed publicly. Source: americafc.com.br/escolas + verified news."
+  },
+
+  "competitors": {
+    "_note": "Athlete counts for competitors are estimates — no official public data except where noted.",
+    "networks": [
+      { "name": "América MG", "units_mg": 110, "athletes_mg": 12000, "confidence": "verified", "source": "americafc.com.br + press" },
+      { "name": "Escola Cruzeiro", "units_mg": 30, "units_mg_note": "~30 in MG of 45+ total BR", "athletes_mg": 5000, "confidence": "estimated" },
+      { "name": "Atlético MG (Galo)", "units_mg": 18, "units_mg_note": "~15-20 estimated", "athletes_mg": 3000, "confidence": "estimated" },
+      { "name": "PSG Academy", "units_mg": 2, "cities": ["BH", "Juiz de Fora"], "athletes_mg": 500, "confidence": "estimated", "source": "psgacademy.com.br" },
+      { "name": "Flamengo (franquias)", "units_mg": 7, "units_mg_note": "~5-8 estimated", "athletes_mg": 1500, "confidence": "estimated" },
+      { "name": "Inter Academy", "units_mg": 4, "units_mg_note": "~3-5 estimated", "athletes_mg": 800, "confidence": "estimated" },
+      { "name": "Ronaldo Academy (R9A)", "units_mg": 3, "athletes_mg": 500, "confidence": "estimated" },
+      { "name": "Palmeiras", "units_mg": 3, "units_mg_note": "~2-3 estimated", "athletes_mg": 500, "confidence": "estimated" },
+      { "name": "Independentes/Municipais", "units_mg_range": [500, 800], "athletes_mg_range": [80000, 120000], "confidence": "estimated", "note": "BH alone has 75+ documented (Scielo academic study)" }
+    ],
+    "total_mg_escolinhas_range": [500, 800],
+    "total_mg_athletes_range": [100000, 150000]
+  },
+
+  "sponsors": {
+    "companies_over_60m_rol": 400,
+    "companies_over_60m_source": "XXVIII Ranking MercadoComum 2024",
+    "companies_over_60m_confidence": "verified",
+    "companies_over_100m_estimated": 300,
+    "companies_over_100m_note": "Extrapolation from 400 >R$60M. Not directly counted.",
+    "companies_over_100m_confidence": "estimated",
+    "companies_over_1b": 40,
+    "companies_over_1b_confidence": "estimated",
+    "companies_sport_esg_fit": 55,
+    "companies_sport_esg_fit_note": "~50-60 with natural fit (ESG, community, youth, sport)",
+    "companies_sport_esg_fit_confidence": "estimated",
+    "total_rol_brl": 710830000000,
+    "total_rol_note": "400 companies combined = R$710.83B = 69% of MG state GDP",
+    "total_rol_source": "Ranking MercadoComum 2024",
+    "total_rol_confidence": "verified",
+    "top_companies": [
+      { "name": "ArcelorMittal", "sector": "Siderurgia", "revenue_brl": 66500000000, "city": "BH", "fit": "CSR/ESG, comunidades operárias" },
+      { "name": "Cemig", "sector": "Energia", "revenue_brl": 39800000000, "city": "BH", "fit": "853 municípios, ESG" },
+      { "name": "Localiza", "sector": "Mobilidade", "revenue_brl": 38200000000, "city": "BH", "fit": "Marca jovem, Gen Z, digital" },
+      { "name": "Energisa", "sector": "Energia", "revenue_brl": 33700000000, "city": "Cataguases", "fit": "Interior de MG, capilaridade" },
+      { "name": "Stellantis (Fiat)", "sector": "Automotivo", "revenue_brl": 50000000000, "city": "Betim", "fit": "Maior PIB industrial de MG" },
+      { "name": "Usiminas", "sector": "Siderurgia", "revenue_brl": 15000000000, "city": "Ipatinga/BH", "fit": "Vale do Aço — América unit in Ipatinga" },
+      { "name": "Mart Minas/Dom", "sector": "Varejo alimentar", "revenue_brl": 9400000000, "city": "Contagem", "fit": "Classe C/D, escolinhas populares" },
+      { "name": "DMA (Epa/BH)", "sector": "Varejo alimentar", "revenue_brl": 8000000000, "city": "BH", "fit": "40+ lojas em MG, público família" },
+      { "name": "MRV", "sector": "Construção", "revenue_brl": 8000000000, "city": "BH", "fit": "Público classe C, famílias jovens" },
+      { "name": "Grupo Martins", "sector": "Atacado/Distrib.", "revenue_brl": 7000000000, "city": "Uberlândia", "fit": "Interior, capilaridade nacional" },
+      { "name": "Tambasa", "sector": "Atacado", "revenue_brl": 6400000000, "city": "Contagem", "fit": "RMBH, público popular" },
+      { "name": "Inter (Banco)", "sector": "Fintech", "revenue_brl": 5000000000, "city": "BH", "fit": "25M+ clientes, digital, jovem" },
+      { "name": "Decminas", "sector": "Atacado", "revenue_brl": 4700000000, "city": "MG", "fit": "Interior de MG" },
+      { "name": "CIMED (Lavitan)", "sector": "Farmacêutico", "revenue_brl": 4000000000, "city": "Pouso Alegre", "fit": "JÁ PATROCINA CBF — P0 sponsor-radar", "sponsor_radar_priority": "P0" }
+    ],
+    "top_companies_source": "Ranking MercadoComum 2024, Exame, ABAD 2025. Revenue values approximate ±20%.",
+    "top_companies_confidence": "verified"
+  },
+
+  "pricing": {
+    "b2c_tiers": [
+      { "id": "jogador", "label": "Por Jogador", "athletes_per_plan": 1, "price_brl": 26.99, "default_mix": 0.40 },
+      { "id": "basico", "label": "Básico", "athletes_per_plan": 2, "price_brl": 49.99, "default_mix": 0.30 },
+      { "id": "premium_ads", "label": "Premium c/ Ads", "athletes_per_plan": 2, "price_brl": 64.99, "default_mix": 0.15 },
+      { "id": "premium", "label": "Premium", "athletes_per_plan": 2, "price_brl": 84.99, "default_mix": 0.10 },
+      { "id": "agente", "label": "Agente Personal", "athletes_per_plan": 1, "price_brl": 84.99, "default_mix": 0.05 }
+    ],
+    "arpu_monthly_brl": 48.29,
+    "arpu_source": "Marcus confirmed pricing Mar 2026",
+    "arpu_confidence": "verified",
+    "athletes_to_subscriptions_ratio": 0.70,
+    "athletes_to_subscriptions_note": "40% on 1-athlete plans + 60% on 2-athlete plans → N athletes ≈ 0.7N subscriptions",
+    "escolinha_monthly_fee_range_brl": [150, 600],
+    "escolinha_monthly_fee_source": "Chute Dourado 2025, sites oficiais (Grêmio, SPFC, Juventude, Olé)",
+    "escolinha_monthly_fee_confidence": "verified",
+    "iscout_as_pct_of_fee": "4-18%",
+    "iscout_as_pct_note": "R$26.99-84.99 iScout vs R$150-600 escolinha = low-friction add-on"
+  },
+
+  "revenue_scenarios": [
+    {
+      "id": "piloto_1_escola",
+      "label": "Piloto (1 escola)",
+      "athletes": 150,
+      "subscriptions": 105,
+      "arpu_monthly": 48.29,
+      "annual_brl": 60846,
+      "monthly_brl": 5071,
+      "assumptions": "1 América unit × 150 athletes, 100% participation, 70% athlete-to-sub ratio",
+      "confidence": "assumption"
+    },
+    {
+      "id": "america_10pct",
+      "label": "América 10% (Y1 low)",
+      "athletes": 1200,
+      "subscriptions": 840,
+      "arpu_monthly": 48.29,
+      "annual_brl": 486763,
+      "monthly_brl": 40564,
+      "assumptions": "10% of 12K América athletes, 70% athlete-to-sub ratio",
+      "confidence": "assumption"
+    },
+    {
+      "id": "america_30pct",
+      "label": "América 30% (Y2)",
+      "athletes": 3600,
+      "subscriptions": 2520,
+      "arpu_monthly": 48.29,
+      "annual_brl": 1460290,
+      "monthly_brl": 121691,
+      "assumptions": "30% of 12K América athletes, 70% athlete-to-sub ratio",
+      "confidence": "assumption"
+    },
+    {
+      "id": "mg_5pct",
+      "label": "MG 5% escolinhas formais",
+      "athletes": 7500,
+      "subscriptions": 5250,
+      "arpu_monthly": 48.29,
+      "annual_brl": 3042270,
+      "monthly_brl": 253523,
+      "assumptions": "5% of ~150K MG athletes, 70% athlete-to-sub ratio",
+      "confidence": "assumption"
+    },
+    {
+      "id": "mg_10pct",
+      "label": "MG 10% escolinhas formais",
+      "athletes": 15000,
+      "subscriptions": 10500,
+      "arpu_monthly": 48.29,
+      "annual_brl": 6084540,
+      "monthly_brl": 507045,
+      "assumptions": "10% of ~150K MG athletes, 70% athlete-to-sub ratio",
+      "confidence": "assumption"
+    }
+  ],
+
+  "tam_sam_som": {
+    "tam": {
+      "label": "MG Total (escolinhas formais)",
+      "athletes": 150000,
+      "subscriptions": 105000,
+      "annual_brl": 60845400,
+      "note": "~150K athletes × 70% sub ratio × R$48.29 × 12",
+      "confidence": "estimated"
+    },
+    "sam": {
+      "label": "Rede América",
+      "athletes": 12000,
+      "subscriptions": 8400,
+      "annual_brl": 5368454,
+      "note": "Existing channel: 12K athletes in 110+ units. Annual at full conversion.",
+      "confidence": "verified"
+    },
+    "som": {
+      "label": "Ano 1 (10-30% América)",
+      "athletes_range": [1200, 3600],
+      "subscriptions_range": [840, 2520],
+      "annual_brl_range": [486763, 1460290],
+      "confidence": "assumption"
+    }
+  },
+
+  "social_reach": {
+    "america_parents": 24000,
+    "america_parents_note": "12K athletes × 2 parents",
+    "total_mg_parents": 300000,
+    "total_mg_parents_note": "~150K athletes × 2 parents",
+    "avg_followers_per_parent": 200,
+    "avg_followers_source": "DataReportal 2025 / Backlinko — global median, no BR-specific breakout",
+    "avg_followers_confidence": "estimated",
+    "america_organic_impressions": 4800000,
+    "america_organic_impressions_note": "24K × 200. Speculative.",
+    "mg_organic_impressions": 60000000,
+    "mg_organic_impressions_note": "300K × 200. Speculative.",
+    "impressions_confidence": "estimated",
+    "impressions_risk": "MEDIUM — no data specific to parent sharing behavior"
+  },
+
+  "top_municipalities": [
+    { "city": "Belo Horizonte", "pib_brl": 130197000000, "tier": 1, "america_present": true, "america_units": 4, "notes": "75+ escolinhas documented. ArcelorMittal, Cemig, Localiza, MRV, Inter.", "pib_source": "IBGE 2023" },
+    { "city": "Betim", "pib_brl": 52614000000, "tier": 1, "america_present": false, "notes": "Stellantis/Fiat. 53% PIB is industry.", "pib_source": "IBGE 2023" },
+    { "city": "Uberlândia", "pib_brl": 51065000000, "tier": 1, "america_present": false, "notes": "Grupo Martins R$7B. 2º in new companies in MG. No América presence.", "pib_source": "IBGE 2023" },
+    { "city": "Contagem", "pib_brl": 45092000000, "tier": 1, "america_present": true, "america_units": 1, "notes": "Mart Minas, Tambasa.", "pib_source": "IBGE 2023" },
+    { "city": "Uberaba", "pib_brl": 23689000000, "tier": 2, "america_present": false, "notes": "Triângulo Mineiro agro pole.", "pib_source": "IBGE 2023" },
+    { "city": "Juiz de Fora", "pib_brl": 23271000000, "tier": 2, "america_present": false, "notes": "Escola Cruzeiro + PSG Academy present.", "pib_source": "IBGE 2023" },
+    { "city": "Extrema", "pib_brl": 20204000000, "tier": 2, "america_present": false, "notes": "Logistics hub (Amazon, ML). Divisa SP.", "pib_source": "IBGE 2023" },
+    { "city": "Ipatinga", "pib_brl": 16870000000, "tier": 2, "america_present": true, "america_units": 1, "notes": "Usiminas. Vale do Aço. Strong community.", "pib_source": "IBGE 2023" },
+    { "city": "Sete Lagoas", "pib_brl": 14904000000, "tier": 2, "america_present": false, "notes": "Steel pole. Iveco. 50km from BH.", "pib_source": "IBGE 2023" },
+    { "city": "Pouso Alegre", "pib_brl": 14201000000, "tier": 2, "america_present": false, "notes": "CIMED R$4B. 2 factories. Sul de MG.", "pib_source": "IBGE 2023" },
+    { "city": "Montes Claros", "pib_brl": 13326000000, "tier": 2, "america_present": false, "notes": "Norte de MG. Cruzeiro: 2 units. Low competition.", "pib_source": "IBGE 2023" },
+    { "city": "Nova Lima", "pib_brl": 12447000000, "tier": 2, "america_present": true, "america_units": 1, "notes": "Mining + high-income condos. Classe A/B.", "pib_source": "IBGE 2023" },
+    { "city": "Poços de Caldas", "pib_brl": 10732000000, "tier": 2, "america_present": false, "notes": "Alcoa, CBA, Ferrero. Tourism + industry.", "pib_source": "IBGE 2023" },
+    { "city": "Varginha", "pib_brl": 10068000000, "tier": 2, "america_present": false, "notes": "Coffee capital. R9A + Inter Academy present.", "pib_source": "IBGE 2023" },
+    { "city": "Divinópolis", "pib_brl": 9339000000, "tier": 3, "america_present": false, "notes": "Cruzeiro: 1 unit. Textile pole.", "pib_source": "IBGE 2023" },
+    { "city": "Governador Valadares", "pib_brl": 8612000000, "tier": 3, "america_present": false, "notes": "Rio Doce. Interior pilot potential.", "pib_source": "IBGE 2023" }
+  ],
+
+  "sponsor_pitches": [
+    {
+      "id": "bh_rmbh",
+      "label": "BH + RMBH — Epicentro",
+      "priority": "P1",
+      "pib_combined_brl": 228000000000,
+      "america_units": 11,
+      "athletes_estimated": 40000,
+      "athletes_note": "~30-50K in escolinhas in RMBH (75+ documented in BH alone)",
+      "companies": ["ArcelorMittal", "Cemig", "Localiza", "Stellantis", "MRV", "Inter", "DMA"],
+      "pitch": "Uma empresa em BH patrocinando 10 escolinhas América alcança ~2.000 famílias e ~400K impressões orgânicas. Custo: R$20-30K/ano em câmeras. CPM orgânico: ~R$0,07."
+    },
+    {
+      "id": "vale_do_aco",
+      "label": "Vale do Aço — Ipatinga",
+      "priority": "QUICK WIN",
+      "pib_combined_brl": 16870000000,
+      "america_units": 1,
+      "companies": ["Usiminas", "Cenibra", "Aperam"],
+      "pitch": "Patrocine a evolução dos filhos dos seus funcionários. Câmeras iScout na escolinha América de Ipatinga — R$200-300/mês."
+    },
+    {
+      "id": "sul_mg_cimed",
+      "label": "Sul de MG — CIMED Territory",
+      "priority": "P0",
+      "pib_combined_brl": 14201000000,
+      "america_units": 0,
+      "companies": ["CIMED/Lavitan"],
+      "pitch": "CIMED já patrocina CBF + SPFC. América abre unidade em Pouso Alegre → CIMED patrocina câmeras = win-win-win.",
+      "note": "No América presence yet in Sul de MG. Expansion opportunity."
+    },
+    {
+      "id": "triangulo_mineiro",
+      "label": "Triângulo Mineiro — Uberlândia",
+      "priority": "EXPANSION",
+      "pib_combined_brl": 74754000000,
+      "america_units": 0,
+      "companies": ["Grupo Martins"],
+      "pitch": "Uberlândia + Uberaba = R$74.8B combined PIB. No América presence. Open market.",
+      "note": "No América presence. Cruzeiro may already be here."
+    }
+  ],
+
+  "copa_2026_effect": {
+    "demand_increase_pct": 40,
+    "demand_source": "SBT News — procura por escolinhas +40% durante Copa 2022",
+    "demand_confidence": "verified",
+    "copa_location": "EUA/México/Canadá",
+    "copa_year": 2026,
+    "note": "Copa 2022 data used as proxy for Copa 2026 effect"
+  },
+
+  "data_quality": {
+    "confidence_legend": {
+      "verified": "Official/primary source, cross-referenced",
+      "estimated": "Derived from secondary sources or extrapolated",
+      "assumption": "Model parameter, not empirically validated"
+    },
+    "limitations_ranked": [
+      { "rank": 1, "field": "market.in_formal_escolinhas", "risk": "MEDIUM", "note": "No census. Multiple cross-checks converge on ~100-175K. Stronger than national estimate." },
+      { "rank": 2, "field": "social_reach.*", "risk": "MEDIUM", "note": "No BR-specific follower data for parents." },
+      { "rank": 3, "field": "sponsors.companies_over_100m_estimated", "risk": "MEDIUM", "note": "Extrapolated from 400 >R$60M ranking." },
+      { "rank": 4, "field": "competitors.*.athletes_mg", "risk": "MEDIUM", "note": "Competitor athlete counts are estimates without official sources." },
+      { "rank": 5, "field": "revenue_scenarios.*.conversion", "risk": "ASSUMPTION", "note": "No real conversion data exists for escolinhas → iScout." },
+      { "rank": 6, "field": "top_companies.*.revenue_brl", "risk": "LOW", "note": "From rankings but approximate ±20%." }
+    ]
+  },
+
+  "sources": {
+    "ibge_censo_2022": "IBGE Censo Demográfico 2022 (20,539,989 MG pop)",
+    "ibge_pib_municipios_2023": "IBGE PIB dos Municípios 2023 (published Dec 2025)",
+    "o_tempo_dec2025": "https://www.otempo.com.br/economia/2025/12/19/25-municipios-mineiros-concentraram-53-8-do-pib-do-estado-em-2023-confira-quais-sao",
+    "ranking_mercadocomum_2024": "https://mercadocomum.com/wp-content/uploads/2025/01/28-RANKING-COMPLETO.pdf",
+    "america_escolas": "https://www.americafc.com.br/escolas",
+    "datareportal_2025": "https://datareportal.com/reports/digital-2025-brazil",
+    "scielo_youth_sport": "Scielo 2020 — youth sport participation Brazil (58.1% practice, 53.1% football)",
+    "scielo_bh_escolinhas": "Scielo academic study — 75+ escolinhas documented in BH alone",
+    "backlinko_instagram": "https://backlinko.com/instagram-users",
+    "sbt_news_copa": "https://sbtnews.sbt.com.br/noticia/brasil/232351-procura-por-escolinhas-de-futebol-cresce-40-em-todo-o-pais",
+    "chute_dourado_2025": "Chute Dourado 2025 — escolinha fee comparison",
+    "exame_mg_companies": "https://exame.com/negocios/quais-sao-as-maiores-empresas-de-minas-gerais-veja-quanto-elas-faturam/",
+    "marcus_pricing": "Marcus (iScout CEO) — confirmed B2C tiers Mar 2026",
+    "pnad_2015": "https://agenciabrasil.ebc.com.br/pesquisa-e-inovacao/noticia/2017-05/ibge-100-milhoes-de-pessoas-nao-praticam-esporte-no-brasil"
+  }
+}
