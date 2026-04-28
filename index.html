@@ -197,8 +197,8 @@ body {
 @keyframes shieldPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
 
 /* ── TREND CHART ──────────────────────────────────────── */
-.trend-chart { width: clamp(240px,38vw,380px); margin: 4px auto 0; }
-.trend-chart svg { width: 100%; height: auto; display: block; }
+.trend-chart { width: clamp(240px,38vw,380px); margin: 4px auto 0; overflow: visible; }
+.trend-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
 @keyframes drawPath { from{stroke-dashoffset:700} to{stroke-dashoffset:0} }
 .trend-path { stroke-dasharray: 700; stroke-dashoffset: 700; }
 .trend-chart.animated .trend-path { animation: drawPath 1.8s cubic-bezier(.4,0,.2,1) .2s forwards; }
@@ -930,7 +930,7 @@ body:hover .kbd-hint { opacity: 1; }
       <div style="font-size:clamp(0.85rem,1.5vw,1rem);color:var(--dim);margin-top:8px;letter-spacing:0.02em;">juntos fazem diferença ao longo do tempo.</div>
     </div>
     <div class="trend-chart ai" style="--d:.5s">
-      <svg viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg" aria-label="Evolução ao longo do tempo">
+      <svg viewBox="-16 -16 332 108" xmlns="http://www.w3.org/2000/svg" overflow="visible" aria-label="Evolução ao longo do tempo">
         <line x1="0" y1="78" x2="300" y2="78" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
         <path class="trend-fill" d="M10 68 Q60 62 90 52 T170 28 T270 8 L290 4 L290 78 L10 78 Z" fill="rgba(201,209,72,0.08)"/>
         <path class="trend-path" d="M10 68 Q60 62 90 52 T170 28 T270 8 L290 4" fill="none" stroke="#c9d148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -942,17 +942,17 @@ body:hover .kbd-hint { opacity: 1; }
           <circle class="trend-dot" cx="290" cy="4"  r="5"   fill="#c9d148"/>
         </g>
         <circle cx="290" cy="4" r="5" fill="none" stroke="#c9d148" stroke-width="1.5" opacity="0.5">
-          <animate attributeName="r" values="5;14" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;16" dur="2s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.6;0" dur="2s" repeatCount="indefinite"/>
         </circle>
-        <text x="10"  y="88" fill="#888"    font-family="system-ui,sans-serif" font-size="7" font-weight="700" letter-spacing="1">HOJE</text>
-        <text x="290" y="88" fill="#c9d148" font-family="system-ui,sans-serif" font-size="7" font-weight="800" text-anchor="end" letter-spacing="1">FUTURO</text>
+        <text x="10"  y="90" fill="#888"    font-family="system-ui,sans-serif" font-size="7" font-weight="700" letter-spacing="1">HOJE</text>
+        <text x="290" y="90" fill="#c9d148" font-family="system-ui,sans-serif" font-size="7" font-weight="800" text-anchor="end" letter-spacing="1">FUTURO</text>
       </svg>
     </div>
     <div class="divider ai" style="--d:.6s;width:80px;margin:20px auto;"></div>
     <div class="impact-final ai" style="--d:.75s">Vamos construir isso juntos.</div>
     <div class="ai" style="--d:.95s;margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;">
-      <span class="badge badge-accent">🟢 BIG SOCCER · BY ISCOUT · ATIBAIA</span>
+      <span class="badge badge-accent" style="margin-bottom:0">🟢 BIG SOCCER · BY ISCOUT · ATIBAIA</span>
       <button class="restart-btn" onclick="goTo(0)">↩ Ver do início</button>
     </div>
     </div>
