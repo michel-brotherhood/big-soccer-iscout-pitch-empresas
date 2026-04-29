@@ -368,6 +368,19 @@ body:hover .kbd-hint { opacity: 1; }
 .radar-link { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--slide-accent);text-decoration:none;border:1px solid color-mix(in srgb,var(--slide-accent) 35%,transparent);padding:8px 20px;border-radius:100px;background:color-mix(in srgb,var(--slide-accent) 6%,transparent);display:inline-block;transition:all 0.2s; }
 .radar-link:hover { background:color-mix(in srgb,var(--slide-accent) 14%,transparent);border-color:var(--slide-accent); }
 @media(max-width:480px) { .mg-step-sub { display:none; } }
+.tam-stack { display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:18px;width:100%;max-width:560px; }
+.tam-card { width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(34,197,94,0.28);border-radius:14px;padding:18px 24px;text-align:center;transition:border-color .2s; }
+.tam-card:hover { border-color:rgba(34,197,94,0.55); }
+.tam-card.sam { border-color:rgba(201,209,72,0.28); }
+.tam-card.sam:hover { border-color:rgba(201,209,72,0.55); }
+.tam-card.som { border-color:rgba(79,195,247,0.28); }
+.tam-card.som:hover { border-color:rgba(79,195,247,0.55); }
+.tam-card-val { font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;color:#22c55e;font-family:'SF Mono','Fira Code',monospace;line-height:1.1;margin-bottom:4px; }
+.tam-card.sam .tam-card-val { color:var(--brand-lime); }
+.tam-card.som .tam-card-val { color:#4fc3f7; }
+.tam-card-title { font-size:0.8rem;font-weight:700;color:var(--bright);margin-bottom:5px; }
+.tam-card-sub { font-size:0.68rem;color:var(--dim);line-height:1.65; }
+.tam-arrow { color:rgba(34,197,94,0.45);font-size:0.9rem; }
 </style>
 </head>
 <body>
@@ -815,33 +828,27 @@ body:hover .kbd-hint { opacity: 1; }
 
   <!-- 14 — OPORTUNIDADE MG ───────────────────────────────── -->
   <div class="slide" data-accent="#22c55e" data-section="OPORTUNIDADE">
-    <div class="kicker ai" style="--d:.05s">Mercado em Expansão</div>
-    <div class="headline ai" style="--d:.15s">Minas Gerais: <span class="accent">Oportunidade Estratégica</span>.</div>
-    <div class="subline ai" style="--d:.22s">20.5M habitantes · 150K+ atletas em escolinhas formais · América MG como canal de entrada (110+ unidades, 25 cidades confirmadas).</div>
+    <div class="kicker ai" style="--d:.05s">Dados do Mercado</div>
+    <div class="headline ai" style="--d:.15s">O Tamanho da <span class="accent">Oportunidade</span>.</div>
+    <div class="subline ai" style="--d:.22s">Minas Gerais concentra a maior rede de escolinhas do América. A iSCOUT entra como camada premium de analytics com IA — vídeo, relatórios, benchmark e scouting em escala.</div>
 
-    <div class="stats-grid ai" style="--d:.32s">
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span data-mg-athletes>150K</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Atletas em Escolinhas Formais</div>
+    <div class="tam-stack ai" style="--d:.32s">
+      <div class="tam-card">
+        <div class="tam-card-val" data-mg-tam>R$ 60,8M</div>
+        <div class="tam-card-title">TAM (MG)</div>
+        <div class="tam-card-sub">150K atletas × 70% ratio × R$48/mês × 12<br>Mercado total de escolinhas formais em Minas Gerais</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span data-mg-families>300K</span><span class="stat-plus">+</span></div>
-        <div class="stat-label">Pais/Famílias Alcançáveis</div>
+      <div class="tam-arrow">▼</div>
+      <div class="tam-card sam">
+        <div class="tam-card-val">R$ 5,4M</div>
+        <div class="tam-card-title">SAM (Rede América)</div>
+        <div class="tam-card-sub">12K atletas · 110+ unidades · 25 cidades<br>Canal direto confirmado — 8,8% do TAM</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num-wrap"><span data-mg-tam>R$ 61M</span></div>
-        <div class="stat-label">TAM Anual Potencial</div>
-      </div>
-    </div>
-
-    <div class="card glow ai" style="--d:.46s;text-align:center;padding:16px 24px;margin-top:12px;max-width:700px;">
-      <div style="font-size:0.82rem;color:var(--bright);line-height:1.9;">
-        <strong style="color:var(--brand-lime)">TAM:</strong> <span data-mg-tam-text>R$ 60.8M/ano · 150K atletas</span> &nbsp;|&nbsp;
-        <strong style="color:var(--brand-lime)">SAM:</strong> <span data-mg-sam-text>R$ 5.4M/ano · rede América</span> &nbsp;|&nbsp;
-        <strong style="color:var(--brand-lime)">SOM Y1:</strong> <span data-mg-som-text>R$ 487K–1.4M</span>
-      </div>
-      <div style="font-size:0.72rem;color:var(--dim);margin-top:6px;line-height:1.6;">
-        📱 4.8M impressões orgânicas · só América &nbsp;·&nbsp; CPM estimado <strong style="color:var(--slide-accent)">~R$0,07</strong> <span style="opacity:.6">vs R$15–30 no digital pago</span>
+      <div class="tam-arrow">▼</div>
+      <div class="tam-card som">
+        <div class="tam-card-val">R$ 487K–1,4M</div>
+        <div class="tam-card-title">SOM — Ano 1</div>
+        <div class="tam-card-sub">10–30% de penetração · 840–2.520 assinaturas · ARPU R$48/mês</div>
       </div>
     </div>
 
