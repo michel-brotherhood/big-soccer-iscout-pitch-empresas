@@ -216,16 +216,19 @@ body {
 /* ── CHROME ───────────────────────────────────────────── */
 .nav-arrow {
   position: fixed; top: 50%; transform: translateY(-50%);
-  z-index: 100; background: var(--surface); border: 1px solid var(--border);
-  color: var(--dim); font-size: 1.2rem; width: 40px; height: 40px;
+  z-index: 100; background: transparent; border: none;
+  color: rgba(255,255,255,0.30); font-size: 2rem; width: 52px; height: 52px;
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.2s; user-select: none; padding: 0;
+  cursor: pointer; transition: color 0.2s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), text-shadow 0.2s ease;
+  user-select: none; padding: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
-.nav-arrow:hover { color: var(--bright); border-color: var(--slide-accent); background: var(--surface2); }
-.nav-arrow:focus-visible { outline: 2px solid var(--slide-accent); outline-offset: 3px; color: var(--bright); }
-.nav-arrow.disabled { opacity: 0.15; cursor: default; pointer-events: none; }
-.nav-prev { left: 20px; }
-.nav-next { right: 20px; }
+.nav-arrow:hover { color: var(--bright); text-shadow: 0 2px 24px rgba(0,0,0,0.9), 0 0 18px color-mix(in srgb,var(--slide-accent) 60%,transparent); }
+.nav-prev:hover  { transform: translateY(-50%) translateX(-3px); }
+.nav-next:hover  { transform: translateY(-50%) translateX(3px); }
+.nav-arrow:focus-visible { outline: 2px solid var(--slide-accent); outline-offset: 4px; border-radius: 50%; color: var(--bright); }
+.nav-arrow.disabled { opacity: 0.12; cursor: default; pointer-events: none; }
+.nav-prev { left: 16px; }
+.nav-next { right: 16px; }
 
 .progress-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 4px; background: var(--border); z-index: 100; }
 .progress-fill { height: 100%; width: 0%; transition: width 0.5s ease, background 0.6s ease; }
@@ -242,7 +245,7 @@ body {
 
 .top-right { position: fixed; top: 14px; right: 24px; z-index: 100; display: flex; align-items: center; gap: 14px; height: 34px; }
 .logo-corner { position: fixed; top: 14px; left: 24px; z-index: 100; display: flex; align-items: center; gap: 6px; }
-.section-tag { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 100; height: 34px; display: flex; align-items: center; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; pointer-events: none; color: var(--slide-accent); opacity: 0.65; transition: color 0.5s ease; }
+.section-tag { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 100; height: 34px; display: flex; align-items: center; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; pointer-events: none; color: rgba(255,255,255,0.55); transition: opacity 0.5s ease; }
 
 .fs-btn { background: var(--surface); border: 1px solid var(--border); color: var(--dim); font-size: 0.85rem; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
 .fs-btn:hover { color: var(--bright); border-color: var(--slide-accent); }
@@ -1020,40 +1023,44 @@ body:hover .kbd-hint { opacity: 1; }
   <div class="slide" data-accent="#f59e0b" data-section="ROI">
     <div class="kicker ai" style="--d:.05s">Retorno sobre Investimento</div>
     <div class="headline ai" style="--d:.15s">ROI: <span class="accent">três camadas</span> de valor.</div>
-    <div class="pilares-grid ai" style="--d:.3s;grid-template-columns:1fr 1fr 1fr;max-width:960px;">
-      <div class="pilar-card">
-        <div class="card-icon">🎯</div>
-        <div class="card-title" style="color:var(--amber);">ROI de Marca</div>
-        <div class="card-desc" style="display:flex;flex-direction:column;gap:5px;margin-top:6px;">
-          <div>📡 Visibilidade positiva em campo e nas transmissões</div>
-          <div>🤝 Associação com futebol, juventude e família</div>
-          <div>📖 Conteúdo proprietário com storytelling real</div>
-          <div>🏘️ Presença comunitária em Atibaia</div>
+    <div class="pilares-grid ai" style="--d:.3s;grid-template-columns:1fr 1fr 1fr;max-width:980px;gap:16px;">
+
+      <div class="pilar-card" style="border-top:3px solid var(--amber);padding-top:20px;">
+        <div class="card-icon" style="font-size:1.8rem;margin-bottom:10px;">🎯</div>
+        <div class="card-title" style="color:var(--amber);font-size:0.95rem;margin-bottom:10px;">ROI de Marca</div>
+        <div class="card-desc" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--amber);flex-shrink:0;">📡</span><span>Visibilidade positiva em campo e nas transmissões</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--amber);flex-shrink:0;">🤝</span><span>Associação com futebol, juventude e família</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--amber);flex-shrink:0;">📖</span><span>Conteúdo proprietário com storytelling real</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--amber);flex-shrink:0;">🏘️</span><span>Presença comunitária em Atibaia</span></div>
         </div>
       </div>
-      <div class="pilar-card">
-        <div class="card-icon">🌱</div>
-        <div class="card-title" style="color:var(--green);">ROI de Impacto</div>
-        <div class="card-desc" style="display:flex;flex-direction:column;gap:5px;margin-top:6px;">
-          <div>⚽ 200–300 jovens atletas desenvolvidos</div>
-          <div>👨‍👩‍👧 500–800 famílias engajadas</div>
-          <div>👧 Meninas em programa estruturado</div>
-          <div>📝 Histórias de transformação documentadas</div>
+
+      <div class="pilar-card" style="border-top:3px solid var(--green);padding-top:20px;">
+        <div class="card-icon" style="font-size:1.8rem;margin-bottom:10px;">🌱</div>
+        <div class="card-title" style="color:var(--green);font-size:0.95rem;margin-bottom:10px;">ROI de Impacto</div>
+        <div class="card-desc" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--green);flex-shrink:0;">⚽</span><span>200–300 jovens atletas desenvolvidos</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--green);flex-shrink:0;">👨‍👩‍👧</span><span>500–800 famílias engajadas</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--green);flex-shrink:0;">👧</span><span>Meninas em programa estruturado</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--green);flex-shrink:0;">📝</span><span>Histórias de transformação documentadas</span></div>
         </div>
       </div>
-      <div class="pilar-card">
-        <div class="card-icon">📈</div>
-        <div class="card-title" style="color:var(--blue);">ROI de Negócio</div>
-        <div class="card-desc" style="display:flex;flex-direction:column;gap:5px;margin-top:6px;">
-          <div>🔍 Geração de leads qualificados</div>
-          <div>🗺️ CRM com dados geolocalizados</div>
-          <div>📊 Performance de conteúdo mensurável</div>
-          <div>🚀 Presença em territórios estratégicos</div>
+
+      <div class="pilar-card" style="border-top:3px solid var(--blue);padding-top:20px;">
+        <div class="card-icon" style="font-size:1.8rem;margin-bottom:10px;">📈</div>
+        <div class="card-title" style="color:var(--blue);font-size:0.95rem;margin-bottom:10px;">ROI de Negócio</div>
+        <div class="card-desc" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--blue);flex-shrink:0;">🔍</span><span>Geração de leads qualificados</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--blue);flex-shrink:0;">🗺️</span><span>CRM com dados geolocalizados</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--blue);flex-shrink:0;">📊</span><span>Performance de conteúdo mensurável</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="color:var(--blue);flex-shrink:0;">🚀</span><span>Presença em territórios estratégicos</span></div>
         </div>
       </div>
+
     </div>
-    <div class="card glow ai" style="--d:.55s;text-align:center;padding:14px 24px;margin-top:8px;max-width:760px;">
-      <div style="font-size:0.9rem;color:var(--bright);font-style:italic;">Cada real investido em patrocínio gera visibilidade real, histórias de impacto e oportunidades comerciais mensuráveis.</div>
+    <div class="card glow ai" style="--d:.55s;text-align:center;padding:14px 28px;margin-top:12px;max-width:640px;">
+      <div style="font-size:0.88rem;color:var(--bright);font-style:italic;text-wrap:balance;line-height:1.65;">Cada real investido em patrocínio gera visibilidade real, histórias de impacto e oportunidades comerciais mensuráveis.</div>
     </div>
   </div>
 
